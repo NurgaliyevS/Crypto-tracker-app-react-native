@@ -13,8 +13,8 @@ const TextDefault = styled.Text`
 `;
 
 const TextPrice = styled.Text`
-  color:white;
-  text-align: right
+  color: white;
+  text-align: right;
 `;
 
 function Home() {
@@ -166,7 +166,7 @@ const title = StyleSheet.create({
     paddingLeft: 30,
   },
   titleTextDefault: {
-    fontSize: 15,
+    fontSize: 20,
   },
   titleMoneyTextDefault: {
     paddingTop: 10,
@@ -187,7 +187,6 @@ const records = StyleSheet.create({
   },
   white: {
     flex: 1,
-    // alignItems: 'flex-end',
     // backgroundColor: 'white'
   },
   yellow: {
