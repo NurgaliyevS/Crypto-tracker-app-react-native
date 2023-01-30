@@ -14,7 +14,7 @@ function BottomNavigator() {
         screenOptions={{
           tabBarShowLabel: false,
           headerShown: false,
-          tabBarStyle: { backgroundColor: '#514B4B' },
+          tabBarStyle: { backgroundColor: '#514B4B', borderTopColor: "black" },
           tabBarInactiveTintColor: 'black',
           tabBarActiveTintColor: '#fff',
         }}
