@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
-import { Icon } from 'react-native-vector-icons/Icon';
+import { View, Text, StyleSheet } from 'react-native';
+import { AntDesign, Entypo } from '@expo/vector-icons';
+
+import { Asset } from './Asset';
 
 function Market() {
   return (
@@ -19,14 +21,15 @@ function Market() {
 
       <View style={[row.container]}>
         <View style={[row.name, row.nameContainer]}>
-          <Text style={[container.text]}>Cryptoassets</Text>
-          <DownOutlined />
+          <AntDesign name="filter" size={24} style={[icon.container]} />
         </View>
 
         <View style={[row.price, row.priceContainer]}>
-          <Text style={{ color: 'white', textAlign: 'right' }}>Exchanges</Text>
+          <Entypo name="select-arrows" size={24} style={[icon.container]} />
         </View>
       </View>
+
+      <Asset />
     </View>
   );
 }
@@ -56,7 +59,7 @@ const title = StyleSheet.create({
 
 const section = StyleSheet.create({
   container: {
-    flex: 0.09,
+    flex: 0.12,
     backgroundColor: '#514B4B',
     marginLeft: 30,
     marginRight: 30,
@@ -90,5 +93,13 @@ const row = StyleSheet.create({
   priceContainer: {
     marginRight: 30,
     marginTop: 15,
+    alignItems: 'flex-end'
   },
 });
+
+const icon = StyleSheet.create({
+  container: {
+    color: '#FFFFFF',
+    marginTop: 10
+  }
+})
