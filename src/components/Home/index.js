@@ -35,109 +35,80 @@ function Home() {
         </TextDefault>
       </View>
 
+      {/* TODO ПЕРЕДЕЛАТЬ КАК ОТДЕЛЬНЫЙ КОМПОНЕНТ
+      1. КОТОРЫЙ ПРИНИМАЕТ ИКОНКУ
+      2. НАЗВАНИЕ ИКОНКИ
+      3. DESIRED PRICE
+      4. CURRENT PRICE
+      */}
       <View style={records.container}>
-        <View style={records.green}>
-          <TextDefault style={{ fontSize: 15 }}>Your records</TextDefault>
+        <View style={records.first}>
+          <TextDefault style={records.title}>Your records</TextDefault>
 
-          <View style={{ flexDirection: 'row' }}>
+          <View style={crypto.container}>
             <Image
               source={bitcoinImage}
-              style={{
-                width: 40,
-                height: 40,
-                marginTop: 20,
-                backgroundColor: 'black',
-              }}
+              style={crypto.icon}
             />
             <TextDefault
-              style={{
-                paddingLeft: 10,
-                paddingTop: 30,
-                fontSize: 14,
-              }}
+              style={crypto.title}
             >
               Bitcoin
             </TextDefault>
           </View>
 
-          <View style={{ flexDirection: 'row' }}>
+          <View style={crypto.container}>
             <Image
               source={ethereumImage}
-              style={{
-                width: 40,
-                height: 70,
-                marginTop: 20,
-                backgroundColor: 'black',
-              }}
+              style={crypto.icon}
             />
             <TextDefault
-              style={{
-                paddingLeft: 10,
-                paddingTop: 50,
-                fontSize: 14,
-              }}
+
+              style={crypto.title}
             >
               Ethereum
             </TextDefault>
           </View>
 
-          <View style={{ flexDirection: 'row' }}>
+          <View style={crypto.container}>
             <Image
               source={polygonImage}
-              style={{
-                width: 40,
-                height: 40,
-                marginTop: 20,
-                backgroundColor: 'black',
-              }}
+              style={crypto.icon}
             />
             <TextDefault
-              style={{
-                paddingLeft: 10,
-                paddingTop: 30,
-                fontSize: 14,
-              }}
+              style={crypto.title}
             >
               Polygon
             </TextDefault>
           </View>
 
-          <View style={{ flexDirection: 'row' }}>
+          <View style={crypto.container}>
             <Image
               source={tetherImage}
-              style={{
-                width: 40,
-                height: 40,
-                marginTop: 20,
-                backgroundColor: 'black',
-              }}
+              style={crypto.icon}
             />
             <TextDefault
-              style={{
-                paddingLeft: 10,
-                paddingTop: 30,
-                fontSize: 14,
-              }}
+              style={crypto.title}
             >
               Tether
             </TextDefault>
           </View>
         </View>
 
-        <View style={records.white}>
-          <TextPrice style={{ fontSize: 15 }}>Desired </TextPrice>
-          <TextPrice style={{ paddingTop: 30 }}>550020 $</TextPrice>
-          <TextPrice style={{ paddingTop: 65 }}>550020 $</TextPrice>
-          <TextPrice style={{ paddingTop: 55 }}>2 $</TextPrice>
-          <TextPrice style={{ paddingTop: 40 }}>0.95 $</TextPrice>
+        <View style={records.second}>
+          <TextPrice style={records.title}>Desired </TextPrice>
+          <TextPrice style={crypto.price}>550020 $</TextPrice>
+          <TextPrice style={crypto.price}>550020 $</TextPrice>
+          <TextPrice style={crypto.price}>2 $</TextPrice>
+          <TextPrice style={crypto.price}>0.95 $</TextPrice>
         </View>
 
-        <View style={records.yellow}>
-          <TextPrice style={{ fontSize: 15 }}>Current price</TextPrice>
-          <TextPrice style={{ paddingTop: 30 }}>39,432 $</TextPrice>
-          <TextPrice style={{ paddingTop: 65 }}>2,852.93 $</TextPrice>
-          <TextPrice style={{ paddingTop: 55 }}>0.9 $</TextPrice>
-          <TextPrice style={{ paddingTop: 40 }}>1 $</TextPrice>
+        <View style={records.third}>
+          <TextPrice style={records.title}>Current price</TextPrice>
+          <TextPrice style={crypto.price}>39,432 $</TextPrice>
+          <TextPrice style={crypto.price}>2,852.93 $</TextPrice>
+          <TextPrice style={crypto.price}>0.9 $</TextPrice>
+          <TextPrice style={crypto.price}>1 $</TextPrice>
         </View>
       </View>
     </View>
@@ -177,20 +148,45 @@ const records = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    paddingTop: 40,
+    paddingTop: 25,
     paddingLeft: 30,
     paddingRight: 30,
   },
-  green: {
-    flex: 1.5,
-    // backgroundColor: 'green',
+  title: {
+    fontSize: 15
   },
-  white: {
+  first: {
+    flex: 1.5,
+    // backgroundColor: 'first',
+  },
+  second: {
     flex: 1,
     // backgroundColor: 'white'
   },
-  yellow: {
+  third: {
     flex: 1,
     // backgroundColor: 'yellow',
   },
 });
+
+const crypto = StyleSheet.create({
+  container: {
+    flexDirection: 'row'
+  },
+  icon: {
+    width: 30,
+    height: 30,
+    marginTop: 20,
+    width: '22%',
+    backgroundColor: 'black',
+  },
+  title: {
+    paddingLeft: 10,
+    paddingTop: 30,
+    fontSize: 14,
+  },
+  price: {
+    marginTop: 34,
+  }
+})
+
