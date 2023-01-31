@@ -1,8 +1,10 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { AntDesign, Entypo } from '@expo/vector-icons';
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
+import { AntDesign, Entypo } from "@expo/vector-icons";
 
-import { Asset } from './Asset';
+import { Asset } from "./Asset";
+
+import { fakeData } from "./fakeData";
 
 function Market() {
   return (
@@ -29,7 +31,11 @@ function Market() {
         </View>
       </View>
 
-      <Asset />
+      <View style={asset.container}>
+        {Object.values(fakeData).map((element) => (
+          <Asset {...element} key={element.price} />
+        ))}
+      </View>
     </View>
   );
 }
@@ -39,10 +45,10 @@ export default Market;
 const container = StyleSheet.create({
   view: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: "#000000",
   },
   text: {
-    color: '#FFFFFF',
+    color: "#FFFFFF",
   },
 });
 
@@ -60,12 +66,12 @@ const title = StyleSheet.create({
 const section = StyleSheet.create({
   container: {
     flex: 0.12,
-    backgroundColor: '#514B4B',
+    backgroundColor: "#514B4B",
     marginLeft: 30,
     marginRight: 30,
   },
   title: {
-    textAlign: 'center',
+    textAlign: "center",
     paddingTop: 20,
     fontSize: 18,
   },
@@ -73,7 +79,7 @@ const section = StyleSheet.create({
 
 const row = StyleSheet.create({
   container: {
-    flexDirection: 'row',
+    flexDirection: "row",
   },
 
   name: {
@@ -93,13 +99,21 @@ const row = StyleSheet.create({
   priceContainer: {
     marginRight: 30,
     marginTop: 15,
-    alignItems: 'flex-end'
+    alignItems: "flex-end",
   },
 });
 
 const icon = StyleSheet.create({
   container: {
-    color: '#FFFFFF',
-    marginTop: 10
-  }
+    color: "#FFFFFF",
+    marginTop: 10,
+  },
+});
+
+const asset = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginLeft: 30,
+    marginRight: 30,
+  },
 })
