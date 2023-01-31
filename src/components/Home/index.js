@@ -3,10 +3,7 @@ import { View, StyleSheet, Image } from 'react-native';
 
 import styled from 'styled-components/native';
 
-const bitcoinImage = require('../../../assets/bitcoin.jpg');
-const ethereumImage = require('../../../assets/ethereum.jpg');
-const polygonImage = require('../../../assets/polygon.jpg');
-const tetherImage = require('../../../assets/tether.jpg');
+import { bitcoinImage, ethereumImage, tetherImage, polygonImage } from '../Constants/index';
 
 const TextDefault = styled.Text`
   color: white;
