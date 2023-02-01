@@ -31,7 +31,7 @@ const asset = StyleSheet.create({
   },
   container: {
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   percentageDown: {
     color: 'red'
@@ -49,9 +49,10 @@ const crypto = StyleSheet.create({
     flexDirection: "row",
   },
   icon: {
-    height: 40,
+    width: 30,
+    height: 35,
     marginTop: 20,
-    width: '25%',
+    width: '22%',
     backgroundColor: 'black',
   },
   title: {

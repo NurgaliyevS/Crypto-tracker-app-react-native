@@ -112,7 +112,7 @@ const icon = StyleSheet.create({
 
 const asset = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0.5,
     marginLeft: 30,
     marginRight: 30,
   },
