@@ -57,7 +57,7 @@ const title = StyleSheet.create({
     fontSize: 28,
   },
   header: {
-    paddingTop: 30,
+    paddingTop: 25,
     paddingLeft: 30,
     paddingBottom: 20,
   },
