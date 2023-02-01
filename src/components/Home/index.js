@@ -126,7 +126,7 @@ const style = StyleSheet.create({
 
 const title = StyleSheet.create({
   titleContainer: {
-    flex: 0.12,
+    flex: 0.18,
     backgroundColor: '#514B4B',
   },
   titlePosition: {
@@ -134,7 +134,7 @@ const title = StyleSheet.create({
     paddingLeft: 30,
   },
   titleTextDefault: {
-    fontSize: 20,
+    fontSize: 28,
   },
   titleMoneyTextDefault: {
     paddingTop: 10,
