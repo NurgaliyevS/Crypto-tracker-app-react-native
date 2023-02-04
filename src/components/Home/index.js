@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image, Pressable } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 import styled from "styled-components/native";
@@ -11,6 +11,7 @@ import {
   polygonImage,
 } from "../Constants/index";
 import { HomeModal } from "./HomeModal";
+import { setRecord, setIsOpenModal } from "../Slices/homeSlice";
 
 const TextDefault = styled.Text`
   color: white;
@@ -24,6 +25,13 @@ const TextPrice = styled.Text`
 function Home() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.home);
+
+  const setRecordMethod = (id) => {
+    dispatch(setRecord(id));
+    dispatch(setIsOpenModal(true))
+  };
+
+  console.log(state, "state");
 
   return (
     <>
@@ -55,10 +63,16 @@ function Home() {
           <View style={records.first}>
             <TextDefault style={records.title}>Your records</TextDefault>
 
-            <View style={crypto.container}>
-              <Image source={bitcoinImage} style={crypto.icon} />
-              <TextDefault style={crypto.title}>Bitcoin</TextDefault>
-            </View>
+            <Pressable
+              onPress={() => {
+                setRecordMethod(1);
+              }}
+            >
+              <View style={crypto.container}>
+                <Image source={bitcoinImage} style={crypto.icon} />
+                <TextDefault style={crypto.title}>Bitcoin</TextDefault>
+              </View>
+            </Pressable>
 
             <View style={crypto.container}>
               <Image source={ethereumImage} style={crypto.icon} />
@@ -107,6 +121,10 @@ const style = StyleSheet.create({
   },
   TextDefaultCommon: {
     color: "#FFFFFF",
+  },
+  wrapperCustom: {
+    borderRadius: 8,
+    padding: 6,
   },
 });
 

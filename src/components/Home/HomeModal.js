@@ -1,12 +1,6 @@
 import React from "react";
 
-import {
-  Modal,
-  TouchableHighlight,
-  Text,
-  StyleSheet,
-  View,
-} from "react-native";
+import { Modal, Text, StyleSheet, View, Pressable } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
@@ -26,9 +20,18 @@ export function HomeModal() {
         Alert.alert("Modal has been closed.");
         dispatch(setIsOpenModal(!isOpenModal));
       }}
+      onTouchCancel={() => {
+        dispatch(setIsOpenModal(!isOpenModal));
+      }}
     >
       <View style={[style.container, style.view, style.content, style.size]}>
-        <Text>hello</Text>
+        <Pressable
+          onPress={() => {
+            dispatch(setIsOpenModal(!isOpenModal));
+          }}
+        >
+          <Text>Close Modal</Text>
+        </Pressable>
       </View>
     </Modal>
   );
@@ -40,7 +43,7 @@ const style = StyleSheet.create({
   },
   size: {
     marginLeft: 30,
-    marginRight: 20
+    marginRight: 20,
   },
   view: {
     marginTop: 22,
@@ -51,5 +54,5 @@ const style = StyleSheet.create({
   content: {
     borderRadius: 20,
     padding: 35,
-  }
+  },
 });

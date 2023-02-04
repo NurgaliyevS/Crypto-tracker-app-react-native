@@ -19,7 +19,7 @@ const homeSlice = createSlice({
             state.record = action.payload
         },
         setIsOpenModal(state, action){
-            state.showModal = action.payload
+            state.isOpenModal = action.payload
         }
     }
 })
