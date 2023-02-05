@@ -115,5 +115,6 @@ const asset = StyleSheet.create({
     flex: 0.5,
     marginLeft: 30,
     marginRight: 30,
+    marginTop: 10
   },
 })
