@@ -1,11 +1,11 @@
-import React from "react";
-import { View, StyleSheet, Image, Pressable } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
-
+import React, { useEffect } from "react";
+import { View, StyleSheet } from "react-native";
 import styled from "styled-components/native";
 
+import { useDispatch, useSelector } from "react-redux";
+import { setRecords } from "../Slices/homeSlice";
+
 import { HomeModal } from "./HomeModal";
-import { setRecord, setIsOpenModal } from "../Slices/homeSlice";
 import { Record } from "./Record";
 import { fakeData } from "./fakeData";
 
@@ -13,21 +13,19 @@ const TextDefault = styled.Text`
   color: white;
 `;
 
-const TextPrice = styled.Text`
-  color: white;
-  text-align: right;
-`;
-
 function Home() {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.home);
+  const { records } = useSelector((state) => state.home)
 
-  const setRecordMethod = (id) => {
-    dispatch(setRecord(id));
-    dispatch(setIsOpenModal(true));
-  };
+  if (Object.values(fakeData).length) {
+    dispatch(setRecords(fakeData));
+  }
 
-  console.log(state, "state");
+  useEffect(() => {
+    if (Object.values(records).length) {
+      dispatch(setRecords(records))     
+    }
+  }, [records])
 
   return (
     <>
@@ -61,7 +59,7 @@ function Home() {
         </View>
 
         {Object.values(fakeData).map((element) => (
-          <Record {...element} key={element.title} />
+          <Record {...element} key={element.id} />
         ))}
       </View>
       <HomeModal />
