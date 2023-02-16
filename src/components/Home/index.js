@@ -15,17 +15,13 @@ const TextDefault = styled.Text`
 
 function Home() {
   const dispatch = useDispatch();
-  const { records } = useSelector((state) => state.home)
+  const { records } = useSelector((state) => state.home);
 
-  if (Object.values(fakeData).length) {
-    dispatch(setRecords(fakeData));
-  }
-
-  useEffect(() => {
-    if (Object.values(records).length) {
-      dispatch(setRecords(records))     
+  (function setRecordsMethod(){
+    if (Object.values(fakeData).length) {
+      dispatch(setRecords(fakeData));
     }
-  }, [records])
+  })(fakeData);
 
   return (
     <>
