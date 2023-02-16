@@ -7,6 +7,7 @@ const homeSlice = createSlice({
     loading: false,
     record: {},
     isOpenModal: false,
+    isCryptoAsset: true
   },
   reducers: {
     setRecords(state, action) {
@@ -30,6 +31,9 @@ const homeSlice = createSlice({
     setIsOpenModal(state, action) {
       state.isOpenModal = action.payload;
     },
+    setIsCryptoAsset(state, action){
+      state.isCryptoAsset = action.payload;
+    }
   },
 });
 
@@ -40,5 +44,6 @@ export const {
   setIsOpenModal,
   updatePriceRecord,
   deleteRecord,
+  setIsCryptoAsset
 } = homeSlice.actions;
 export default homeSlice.reducer;
