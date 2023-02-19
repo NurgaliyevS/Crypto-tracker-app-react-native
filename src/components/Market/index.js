@@ -8,6 +8,7 @@ import { Asset } from "./Asset";
 
 import { fakeData } from "./fakeData";
 import { fakeDataExchange } from "./fakeDataExchange";
+import { MarketModal } from "./MarketModal";
 
 const marketType = {
   cryptoAsset: 0,
@@ -85,6 +86,8 @@ function Market() {
           ))}
         </View>
       ) : null}
+
+      <MarketModal />
     </View>
   );
 }
