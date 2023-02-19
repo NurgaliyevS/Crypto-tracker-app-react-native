@@ -7,7 +7,9 @@ const homeSlice = createSlice({
     loading: false,
     record: {},
     isOpenModal: false,
-    isCryptoAsset: true
+    isMarketOpenModal: false,
+    isCryptoAsset: true,
+    newRecord: {}
   },
   reducers: {
     setRecords(state, action) {
@@ -18,6 +20,9 @@ const homeSlice = createSlice({
     },
     setRecord(state, action) {
       state.record = action.payload;
+    },
+    createRecord(state, action) {
+      state.newRecord = action.payload
     },
     updatePriceRecord(state, action) {
       if ((state.record.id = action.payload.id)) {
@@ -30,6 +35,9 @@ const homeSlice = createSlice({
     },
     setIsOpenModal(state, action) {
       state.isOpenModal = action.payload;
+    },
+    setIsMarketOpenModal(state, action){
+      state.isMarketOpenModal = action.payload
     },
     setIsCryptoAsset(state, action){
       state.isCryptoAsset = action.payload;
@@ -44,6 +52,8 @@ export const {
   setIsOpenModal,
   updatePriceRecord,
   deleteRecord,
-  setIsCryptoAsset
+  setIsCryptoAsset,
+  setIsMarketOpenModal,
+  createRecord
 } = homeSlice.actions;
 export default homeSlice.reducer;
