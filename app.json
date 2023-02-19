@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "crypto-tracker-app",
-    "slug": "crypto-tracker-app",
+    "slug": "test",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a9a21d04-fc3b-4428-8c4d-abd1b4864c83"
+      }
+    },
+    "owner": "elvesss"
   }
 }
