@@ -1,4 +1,7 @@
-import { View, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image, Pressable } from "react-native";
+import { useDispatch } from "react-redux";
+
+import { setIsMarketOpenModal, createRecord } from "../Slices/homeSlice";
 
 import styled from "styled-components/native";
 
@@ -11,9 +14,21 @@ const TextPrice = styled.Text`
   text-align: right;
 `;
 
-export function Asset({ source, title, price, percentage, isPositive }) {
+export function Asset({ source, title, price, percentage, isPositive, id }) {
+  const dispatch = useDispatch();
+
+  const openModal = () => {
+    dispatch(createRecord({
+      source: source,
+      title: title,
+      price: price,
+      id: id
+    }))
+    dispatch(setIsMarketOpenModal(true));
+  };
+
   return (
-    <View style={asset.container}>
+    <Pressable onPress={openModal} style={asset.container}>
       <View style={crypto.container}>
         <Image source={source} style={crypto.image} />
       </View>
@@ -30,7 +45,7 @@ export function Asset({ source, title, price, percentage, isPositive }) {
           {percentage}
         </TextPrice>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
